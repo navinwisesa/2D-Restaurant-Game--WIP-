@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://vy6e30c075hl"]
+
+[ext_resource type="Script" path="res://item/item_data.gd" id="1_ba1xj"]
+[ext_resource type="Texture2D" uid="uid://8vdr4215jhlb" path="res://Assets/UI/Food/Cheese.png" id="2_v4ahv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8a6c"]
+atlas = ExtResource("2_v4ahv")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_ba1xj")
+name = "Cheese"
+description = "Cheese."
+stackable = true
+texture = SubResource("AtlasTexture_n8a6c")

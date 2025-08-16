@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://wptxgmcof74o"]
+
+[ext_resource type="Texture2D" uid="uid://c7tsot55j7b8k" path="res://Assets/Buildings/oaks_lab.png" id="1_aqqhm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7asj7"]
+size = Vector2(112, 64)
+
+[node name="Restaurant" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_aqqhm")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(56, 44)
+shape = SubResource("RectangleShape2D_7asj7")

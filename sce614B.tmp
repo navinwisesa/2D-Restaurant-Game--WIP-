@@ -1,0 +1,317 @@
+[gd_scene load_steps=14 format=3 uid="uid://m4ffuj46ee5t"]
+
+[ext_resource type="PackedScene" uid="uid://bxg47vsc8t68v" path="res://town.tscn" id="1_b6vdk"]
+[ext_resource type="Script" path="res://scene_manager.gd" id="1_cqk41"]
+[ext_resource type="Texture2D" uid="uid://cl2fxipt5fhn3" path="res://Assets/UI/menu_box_1.png" id="3_a467x"]
+[ext_resource type="Texture2D" uid="uid://dgge4isqni7c4" path="res://Assets/UI/Food/Hamburger-bread-isolated-on-transparent-background-PNG (1).png" id="4_d3hsa"]
+[ext_resource type="FontFile" uid="uid://cftei7vqpw6hk" path="res://Assets/UI/pkmnfl.ttf" id="5_wl8f8"]
+[ext_resource type="Texture2D" uid="uid://3jrehh8answx" path="res://Assets/UI/Food/pngegg.png" id="6_3pr0l"]
+[ext_resource type="Texture2D" uid="uid://8vdr4215jhlb" path="res://Assets/UI/Food/Cheese.png" id="7_iwcjc"]
+[ext_resource type="Texture2D" uid="uid://dlu5l8gk5ndir" path="res://Assets/UI/Food/just_a_lettuce____by_gooberplease_dab5q2a-fullview.png" id="8_ohvsp"]
+[ext_resource type="Texture2D" uid="uid://hj403r62r0hd" path="res://Assets/UI/Food/an-8-bit-retro-styled-pixel-art-illustration-of-a-red-garden-tomato-free-png.png" id="9_24x31"]
+
+[sub_resource type="Animation" id="Animation_4uspw"]
+resource_name = "FadeToBlack"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.25),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"finished_fading"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ll2eh"]
+resource_name = "FadeToNormal"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xoyqb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_grqta"]
+_data = {
+"FadeToBlack": SubResource("Animation_4uspw"),
+"FadeToNormal": SubResource("Animation_ll2eh"),
+"RESET": SubResource("Animation_xoyqb")
+}
+
+[node name="SceneManager" type="Node2D"]
+script = ExtResource("1_cqk41")
+
+[node name="CurrentScene" type="Node2D" parent="."]
+
+[node name="Town" parent="CurrentScene" instance=ExtResource("1_b6vdk")]
+position = Vector2(-48, 0)
+
+[node name="ScreenTransition" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="ScreenTransition"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ScreenTransition"]
+libraries = {
+"": SubResource("AnimationLibrary_grqta")
+}
+
+[node name="Inventory" type="Control" parent="."]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = -160.0
+offset_top = -90.0
+offset_right = 160.0
+offset_bottom = 90.0
+
+[node name="InvBackground" type="TextureRect" parent="Inventory"]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+texture = ExtResource("3_a467x")
+
+[node name="BunInv" type="Control" parent="Inventory/InvBackground"]
+anchors_preset = 0
+offset_left = 7.0
+offset_top = 11.0
+offset_right = 47.0
+offset_bottom = 51.0
+
+[node name="Bun2" type="Sprite2D" parent="Inventory/InvBackground/BunInv"]
+position = Vector2(83, 52)
+scale = Vector2(0.00810525, 0.00810525)
+texture = ExtResource("4_d3hsa")
+
+[node name="Label2" type="Label" parent="Inventory/InvBackground/BunInv"]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 47.0
+offset_right = 107.0
+offset_bottom = 58.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_wl8f8")
+theme_override_font_sizes/font_size = 12
+text = ":"
+
+[node name="Bunvalue" type="Label" parent="Inventory/InvBackground/BunInv"]
+layout_mode = 0
+offset_left = 102.0
+offset_top = 47.0
+offset_right = 112.0
+offset_bottom = 58.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_wl8f8")
+theme_override_font_sizes/font_size = 12
+
+[node name="HamInv" type="Control" parent="Inventory/InvBackground"]
+anchors_preset = 0
+offset_left = 8.0
+offset_top = 1.0
+offset_right = 48.0
+offset_bottom = 41.0
+
+[node name="Patty2" type="Sprite2D" parent="Inventory/InvBackground/HamInv"]
+texture_filter = 1
+position = Vector2(82, 84)
+scale = Vector2(0.0389287, 0.0350359)
+texture = ExtResource("6_3pr0l")
+
+[node name="Label3" type="Label" parent="Inventory/InvBackground/HamInv"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 80.0
+offset_right = 106.0
+offset_bottom = 91.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_wl8f8")
+theme_override_font_sizes/font_size = 12
+text = ":"
+
+[node name="Hamvalue" type="Label" parent="Inventory/InvBackground/HamInv"]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 80.0
+offset_right = 111.0
+offset_bottom = 91.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_wl8f8")
+theme_override_font_sizes/font_size = 12
+
+[node name="CheeseInv" type="Control" parent="Inventory/InvBackground"]
+anchors_preset = 0
+offset_left = 9.0
+offset_top = -11.0
+offset_right = 49.0
+offset_bottom = 29.0
+
+[node name="Cheese2" type="Sprite2D" parent="Inventory/InvBackground/CheeseInv"]
+texture_filter = 1
+position = Vector2(82, 120)
+scale = Vector2(1.25, 1.125)
+texture = ExtResource("7_iwcjc")
+
+[node name="Label4" type="Label" parent="Inventory/InvBackground/CheeseInv"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 113.0
+offset_right = 105.0
+offset_bottom = 124.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_wl8f8")
+theme_override_font_sizes/font_size = 12
+text = ":"
+
+[node name="Cheesevalue" type="Label" parent="Inventory/InvBackground/CheeseInv"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 113.0
+offset_right = 110.0
+offset_bottom = 124.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_wl8f8")
+theme_override_font_sizes/font_size = 12
+
+[node name="LettuceInv" type="Control" parent="Inventory/InvBackground"]
+anchors_preset = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 46.0
+offset_bottom = 46.0
+
+[node name="Lettuce2" type="Sprite2D" parent="Inventory/InvBackground/LettuceInv"]
+texture_filter = 1
+position = Vector2(165, 65)
+scale = Vector2(0.0289444, 0.02605)
+texture = ExtResource("8_ohvsp")
+
+[node name="Label5" type="Label" parent="Inventory/InvBackground/LettuceInv"]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 59.0
+offset_right = 188.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_wl8f8")
+theme_override_font_sizes/font_size = 12
+text = ":"
+
+[node name="Lettucevalue" type="Label" parent="Inventory/InvBackground/LettuceInv"]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 59.0
+offset_right = 192.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_wl8f8")
+theme_override_font_sizes/font_size = 12
+
+[node name="TomatoInv" type="Control" parent="Inventory/InvBackground"]
+anchors_preset = 0
+offset_left = 6.0
+offset_top = -7.0
+offset_right = 46.0
+offset_bottom = 33.0
+
+[node name="Tomaato2" type="Sprite2D" parent="Inventory/InvBackground/TomatoInv"]
+texture_filter = 1
+position = Vector2(167, 100)
+scale = Vector2(0.0139514, 0.0125562)
+texture = ExtResource("9_24x31")
+
+[node name="Label6" type="Label" parent="Inventory/InvBackground/TomatoInv"]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 95.0
+offset_right = 188.0
+offset_bottom = 106.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_wl8f8")
+theme_override_font_sizes/font_size = 12
+text = ":"
+
+[node name="Tomatovalue" type="Label" parent="Inventory/InvBackground/TomatoInv"]
+layout_mode = 0
+offset_left = 182.0
+offset_top = 95.0
+offset_right = 192.0
+offset_bottom = 106.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_wl8f8")
+theme_override_font_sizes/font_size = 12
+
+[node name="MoneyBox" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = -160.0
+offset_top = -90.0
+offset_right = -115.0
+offset_bottom = -63.0
+texture = ExtResource("3_a467x")
+
+[node name="Label" type="Label" parent="MoneyBox"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 9.0
+offset_right = 50.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_wl8f8")
+theme_override_font_sizes/font_size = 12
+text = "$"
+
+[node name="MoneyValue" type="Label" parent="MoneyBox"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 9.0
+offset_right = 36.0
+offset_bottom = 19.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_wl8f8")
+theme_override_font_sizes/font_size = 12

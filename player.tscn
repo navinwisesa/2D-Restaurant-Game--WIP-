@@ -1,0 +1,980 @@
+[gd_scene load_steps=36 format=3 uid="uid://bmk00x3foc6mh"]
+
+[ext_resource type="Script" uid="uid://4wa8pobig1ga" path="res://player.gd" id="1_kdyb1"]
+[ext_resource type="Texture2D" uid="uid://chbisl1dcj5hm" path="res://Assets/Player/Male_Spritesheet.png" id="1_sxwil"]
+[ext_resource type="Texture2D" uid="uid://dq641kspbqvng" path="res://Assets/UI/logbox.png" id="2_7d26n"]
+[ext_resource type="Texture2D" uid="uid://cufcmnvhr8d4y" path="res://Assets/UI/textbox.png" id="3_m5ow6"]
+[ext_resource type="FontFile" uid="uid://cftei7vqpw6hk" path="res://Assets/UI/pkmnfl.ttf" id="4_ghqs7"]
+[ext_resource type="Texture2D" uid="uid://bva7kyrjqohnw" path="res://Assets/UI/ui_arrow_left_right.png" id="4_jip1w"]
+[ext_resource type="Texture2D" uid="uid://c2r1glywlphpx" path="res://Assets/UI/Pokemon Party/party_background.png" id="5_255qo"]
+[ext_resource type="Texture2D" uid="uid://dgge4isqni7c4" path="res://Assets/UI/Food/Hamburger-bread-isolated-on-transparent-background-PNG (1).png" id="7_dgr1e"]
+[ext_resource type="Texture2D" uid="uid://8vdr4215jhlb" path="res://Assets/UI/Food/Cheese.png" id="7_uc3ur"]
+[ext_resource type="Texture2D" uid="uid://3jrehh8answx" path="res://Assets/UI/Food/pngegg.png" id="8_obuhc"]
+[ext_resource type="Texture2D" uid="uid://dlu5l8gk5ndir" path="res://Assets/UI/Food/just_a_lettuce____by_gooberplease_dab5q2a-fullview.png" id="10_bxt7h"]
+[ext_resource type="Texture2D" uid="uid://hj403r62r0hd" path="res://Assets/UI/Food/an-8-bit-retro-styled-pixel-art-illustration-of-a-red-garden-tomato-free-png.png" id="11_ia6df"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_27cba"]
+size = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_gfla2"]
+resource_name = "IdleDown"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_xkuqu"]
+resource_name = "IdleLeft"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_whxhf"]
+resource_name = "IdleRight"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_kc1h0"]
+resource_name = "IdleUp"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_px6a6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_funu2"]
+resource_name = "WalkDown"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 1]
+}
+
+[sub_resource type="Animation" id="Animation_07ik3"]
+resource_name = "WalkLeft"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, false, false]
+}
+
+[sub_resource type="Animation" id="Animation_qreoo"]
+resource_name = "WalkRight"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, true, true, true]
+}
+
+[sub_resource type="Animation" id="Animation_sbu8l"]
+resource_name = "WalkUp"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 4, 5, 4]
+}
+
+[sub_resource type="Animation" id="Animation_b4370"]
+resource_name = "gone"
+length = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1q7xa"]
+_data = {
+&"IdleDown": SubResource("Animation_gfla2"),
+&"IdleLeft": SubResource("Animation_xkuqu"),
+&"IdleRight": SubResource("Animation_whxhf"),
+&"IdleUp": SubResource("Animation_kc1h0"),
+&"RESET": SubResource("Animation_px6a6"),
+&"WalkDown": SubResource("Animation_funu2"),
+&"WalkLeft": SubResource("Animation_07ik3"),
+&"WalkRight": SubResource("Animation_qreoo"),
+&"WalkUp": SubResource("Animation_sbu8l"),
+&"gone": SubResource("Animation_b4370")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1ntow"]
+animation = &"IdleLeft"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gybf2"]
+animation = &"IdleUp"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_73i7h"]
+animation = &"IdleDown"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ghu7y"]
+animation = &"IdleRight"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_kblxw"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_1ntow")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_gybf2")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_73i7h")
+blend_point_2/pos = Vector2(0, 1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_ghu7y")
+blend_point_3/pos = Vector2(1, 0)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_u76fm"]
+animation = &"WalkLeft"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_afyhl"]
+animation = &"WalkUp"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6glbf"]
+animation = &"WalkRight"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3fp0t"]
+animation = &"WalkDown"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_kgm3l"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_u76fm")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_afyhl")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_6glbf")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_3fp0t")
+blend_point_3/pos = Vector2(0, 1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_opkoc"]
+states/Idle/node = SubResource("AnimationNodeBlendSpace2D_kblxw")
+states/Idle/position = Vector2(356, 87)
+states/Walk/node = SubResource("AnimationNodeBlendSpace2D_kgm3l")
+states/Walk/position = Vector2(485, 87)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+y_sort_enabled = true
+collision_layer = 17
+collision_mask = 5
+script = ExtResource("1_kdyb1")
+
+[node name="BurgerStatus" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+offset_left = -160.0
+offset_top = -90.0
+offset_right = -41.0
+offset_bottom = -8.0
+texture = ExtResource("2_7d26n")
+
+[node name="Label" type="Label" parent="BurgerStatus"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 149.0
+offset_bottom = 26.0
+scale = Vector2(0.75, 0.75)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+text = "Order instructions:"
+
+[node name="Inventory" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+offset_left = 41.0
+offset_top = -90.0
+offset_right = 160.0
+offset_bottom = -8.0
+texture = ExtResource("2_7d26n")
+
+[node name="Label2" type="Label" parent="Inventory"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 151.0
+offset_bottom = 27.0
+scale = Vector2(0.75, 0.75)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+text = "Inventory:"
+
+[node name="BunInv" type="Label" parent="Inventory"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 4.0
+offset_top = 18.0
+offset_right = 151.0
+offset_bottom = 41.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+
+[node name="BunText" type="Label" parent="Inventory"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 165.0
+offset_bottom = 41.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+text = "bun(s)"
+
+[node name="FHamInv" type="Label" parent="Inventory"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 4.0
+offset_top = 28.0
+offset_right = 151.0
+offset_bottom = 51.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+
+[node name="FHamText" type="Label" parent="Inventory"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 18.0
+offset_top = 28.0
+offset_right = 165.0
+offset_bottom = 51.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+text = "frozen ham(s)"
+
+[node name="CHamInv" type="Label" parent="Inventory"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 4.0
+offset_top = 39.0
+offset_right = 151.0
+offset_bottom = 62.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+
+[node name="CHamText" type="Label" parent="Inventory"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 18.0
+offset_top = 39.0
+offset_right = 165.0
+offset_bottom = 62.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+text = "cooked ham(s)"
+
+[node name="CheeseInv" type="Label" parent="Inventory"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 4.0
+offset_top = 50.0
+offset_right = 151.0
+offset_bottom = 73.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+
+[node name="CheeseText" type="Label" parent="Inventory"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 18.0
+offset_top = 50.0
+offset_right = 165.0
+offset_bottom = 73.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+text = "cheese slice(s)"
+
+[node name="TomatoInv" type="Label" parent="Inventory"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 4.0
+offset_top = 60.0
+offset_right = 151.0
+offset_bottom = 83.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+
+[node name="TomatoText" type="Label" parent="Inventory"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 18.0
+offset_top = 60.0
+offset_right = 165.0
+offset_bottom = 83.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+text = "tomato(es)"
+
+[node name="LettuceInv" type="Label" parent="Inventory"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 4.0
+offset_top = 69.0
+offset_right = 151.0
+offset_bottom = 92.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+
+[node name="LettuceText" type="Label" parent="Inventory"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 18.0
+offset_top = 69.0
+offset_right = 165.0
+offset_bottom = 92.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+text = "lettuce slice(s)"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+offset_left = -128.0
+offset_top = 32.0
+offset_right = 129.0
+offset_bottom = 83.0
+texture = ExtResource("3_m5ow6")
+
+[node name="TextLabel" type="Label" parent="TextureRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 8.0
+offset_top = 12.0
+offset_right = 90.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+text = "Welcome to Farmside Burgers.
+"
+
+[node name="InstructionLabel" type="Label" parent="TextureRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 168.0
+offset_top = 36.0
+offset_right = 250.0
+offset_bottom = 59.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+theme_override_font_sizes/font_size = 9
+text = "Press [SPACE] to exit"
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+offset_left = -128.0
+offset_top = 32.0
+offset_right = 129.0
+offset_bottom = 83.0
+texture = ExtResource("3_m5ow6")
+
+[node name="TextLabel" type="Label" parent="TextureRect2"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 8.0
+offset_top = 12.0
+offset_right = 90.0
+offset_bottom = 35.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+text = "Home Sweet Home
+"
+
+[node name="InstructionLabel" type="Label" parent="TextureRect2"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 168.0
+offset_top = 36.0
+offset_right = 250.0
+offset_bottom = 59.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+theme_override_font_sizes/font_size = 9
+text = "Press [SPACE] to exit"
+
+[node name="SecurityBox" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+offset_left = -128.0
+offset_top = 40.0
+offset_right = 129.0
+offset_bottom = 91.0
+texture = ExtResource("3_m5ow6")
+
+[node name="Label" type="Label" parent="SecurityBox"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 112.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+theme_override_font_sizes/font_size = 7
+text = "Security Guard:"
+
+[node name="Label2" type="Label" parent="SecurityBox"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 112.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+theme_override_font_sizes/font_size = 12
+text = "G'day, what brings you to the supermarket?"
+
+[node name="Label3" type="Label" parent="SecurityBox"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 326.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+theme_override_font_sizes/font_size = 9
+text = "Well, if you're looking for groceries, they're on the second floor."
+
+[node name="InstructionLabel2" type="Label" parent="SecurityBox"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 168.0
+offset_top = 32.0
+offset_right = 250.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+theme_override_font_sizes/font_size = 9
+text = "Press [SPACE] to exit"
+
+[node name="TextureRect" type="TextureRect" parent="SecurityBox"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 28.0
+offset_right = 248.0
+offset_bottom = 40.0
+texture = ExtResource("4_jip1w")
+
+[node name="StoreMenu" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+offset_left = -160.0
+offset_top = -92.0
+offset_right = 267.0
+offset_bottom = 153.0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_255qo")
+
+[node name="ColorRect" type="ColorRect" parent="StoreMenu"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 43.0
+offset_right = 147.0
+offset_bottom = 112.0
+color = Color(0.796078, 0.0862745, 1, 0.509804)
+
+[node name="Label" type="Label" parent="StoreMenu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 21.0
+offset_top = 43.0
+offset_right = 154.0
+offset_bottom = 112.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+theme_override_font_sizes/font_size = 27
+text = "Fresh 
+Groceries
+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="StoreMenu"]
+layout_mode = 0
+offset_left = 173.333
+offset_top = 17.3333
+offset_right = 420.333
+offset_bottom = 45.3333
+color = Color(0.298039, 1, 1, 0.509804)
+
+[node name="Label2" type="Label" parent="StoreMenu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 175.0
+offset_top = 17.0
+offset_right = 420.0
+offset_bottom = 47.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+theme_override_font_sizes/font_size = 27
+text = "Burger Buns - $2"
+vertical_alignment = 1
+
+[node name="Bun" type="Sprite2D" parent="StoreMenu"]
+position = Vector2(385.333, 32)
+scale = Vector2(0.010807, 0.010807)
+texture = ExtResource("7_dgr1e")
+
+[node name="ColorRect3" type="ColorRect" parent="StoreMenu"]
+layout_mode = 0
+offset_left = 173.333
+offset_top = 55.3333
+offset_right = 420.333
+offset_bottom = 83.3333
+color = Color(0.298039, 1, 1, 0.509804)
+
+[node name="Patty" type="Sprite2D" parent="StoreMenu"]
+texture_filter = 1
+position = Vector2(392, 68)
+scale = Vector2(0.051905, 0.0467145)
+texture = ExtResource("8_obuhc")
+
+[node name="Label3" type="Label" parent="StoreMenu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 176.0
+offset_top = 54.6667
+offset_right = 421.0
+offset_bottom = 84.6667
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+theme_override_font_sizes/font_size = 27
+text = "Tender Ham - $5"
+vertical_alignment = 1
+
+[node name="ColorRect4" type="ColorRect" parent="StoreMenu"]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 92.6667
+offset_right = 419.0
+offset_bottom = 120.667
+color = Color(0.298039, 1, 1, 0.509804)
+
+[node name="Cheese" type="Sprite2D" parent="StoreMenu"]
+texture_filter = 1
+position = Vector2(389.333, 106.667)
+scale = Vector2(1.66667, 1.5)
+texture = ExtResource("7_uc3ur")
+
+[node name="Label4" type="Label" parent="StoreMenu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 176.0
+offset_top = 90.6667
+offset_right = 421.0
+offset_bottom = 120.667
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+theme_override_font_sizes/font_size = 27
+text = "Cheeeeeeze - $5"
+vertical_alignment = 1
+
+[node name="ColorRect5" type="ColorRect" parent="StoreMenu"]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 128.667
+offset_right = 419.0
+offset_bottom = 156.667
+color = Color(0.298039, 1, 1, 0.509804)
+
+[node name="Lettuce" type="Sprite2D" parent="StoreMenu"]
+texture_filter = 1
+position = Vector2(338.667, 142.667)
+scale = Vector2(0.0385926, 0.0347333)
+texture = ExtResource("10_bxt7h")
+
+[node name="Label5" type="Label" parent="StoreMenu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 174.0
+offset_top = 126.667
+offset_right = 419.0
+offset_bottom = 156.667
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+theme_override_font_sizes/font_size = 27
+text = "Lettuce - $5"
+vertical_alignment = 1
+
+[node name="ColorRect6" type="ColorRect" parent="StoreMenu"]
+layout_mode = 0
+offset_left = 173.333
+offset_top = 164.667
+offset_right = 420.333
+offset_bottom = 192.667
+color = Color(0.298039, 1, 1, 0.509804)
+
+[node name="Tomaato" type="Sprite2D" parent="StoreMenu"]
+texture_filter = 1
+position = Vector2(329.333, 178.667)
+scale = Vector2(0.0186018, 0.0167416)
+texture = ExtResource("11_ia6df")
+
+[node name="Label6" type="Label" parent="StoreMenu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 175.333
+offset_top = 162.667
+offset_right = 420.333
+offset_bottom = 192.667
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+theme_override_font_sizes/font_size = 27
+text = "Tomato - $5"
+vertical_alignment = 1
+
+[node name="Label7" type="Label" parent="StoreMenu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 341.333
+offset_top = 204.0
+offset_right = 374.333
+offset_bottom = 234.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+theme_override_font_sizes/font_size = 20
+text = "YES
+"
+vertical_alignment = 1
+
+[node name="Label8" type="Label" parent="StoreMenu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 389.333
+offset_top = 205.333
+offset_right = 422.333
+offset_bottom = 235.333
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+theme_override_font_sizes/font_size = 20
+text = "NO
+"
+vertical_alignment = 1
+
+[node name="ColorRect7" type="ColorRect" parent="StoreMenu"]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 211.0
+offset_right = 379.0
+offset_bottom = 230.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label9" type="Label" parent="StoreMenu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 10.6667
+offset_top = 204.0
+offset_right = 255.667
+offset_bottom = 234.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_ghqs7")
+theme_override_font_sizes/font_size = 17
+text = "This feature is not yet implemented"
+vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_sxwil")
+centered = false
+offset = Vector2(0, -4)
+flip_h = true
+hframes = 3
+vframes = 3
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_27cba")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1q7xa")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_opkoc")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Idle/blend_position = Vector2(-0.9968, 0.037037)
+parameters/Walk/blend_position = Vector2(-0.00477707, -0.968254)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CollisionRayCast2D" type="RayCast2D" parent="."]
+position = Vector2(8, 8)
+target_position = Vector2(0, 16)
+
+[node name="DoorRayCast2D" type="RayCast2D" parent="."]
+position = Vector2(8, 8)
+target_position = Vector2(0, 20)
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="RestoRayCast2D" type="RayCast2D" parent="."]
+position = Vector2(8, 8)
+target_position = Vector2(0, 20)
+collision_mask = 8
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="MallRayCast2D" type="RayCast2D" parent="."]
+position = Vector2(8, 8)
+target_position = Vector2(0, 20)
+collision_mask = 32
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="MallRayCast2D2" type="RayCast2D" parent="."]
+position = Vector2(8, 8)
+target_position = Vector2(0, 20)
+collision_mask = 64
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="StairCast1" type="RayCast2D" parent="."]
+position = Vector2(8, 8)
+target_position = Vector2(0, 20)
+collision_mask = 128
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="StairCast2" type="RayCast2D" parent="."]
+position = Vector2(8, 8)
+target_position = Vector2(0, 20)
+collision_mask = 256
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="KitchenCast2D" type="RayCast2D" parent="."]
+position = Vector2(8, 8)
+target_position = Vector2(0, 20)
+collision_mask = 512
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Camera2D2" type="Camera2D" parent="."]
+
+[connection signal="bun_bought" from="." to="." method="_on_bun_bought"]
+[connection signal="exit_inventory" from="." to="." method="_on_exit_inventory"]
+[connection signal="go_to_inventory" from="." to="." method="_on_go_to_inventory"]
+[connection signal="ham_bought" from="." to="." method="_on_ham_bought"]
+[connection signal="update_money" from="." to="." method="_on_update_money"]

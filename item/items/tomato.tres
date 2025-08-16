@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://bsnk0hq6fgkg1"]
+
+[ext_resource type="Script" path="res://item/item_data.gd" id="1_wyssm"]
+[ext_resource type="Texture2D" uid="uid://hj403r62r0hd" path="res://Assets/UI/Food/an-8-bit-retro-styled-pixel-art-illustration-of-a-red-garden-tomato-free-png.png" id="2_6kx40"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84vb7"]
+atlas = ExtResource("2_6kx40")
+region = Rect2(0, 0, 1923, 1920)
+
+[resource]
+script = ExtResource("1_wyssm")
+name = "Tomato"
+description = "The universal fruit of the burger language
+"
+stackable = true
+texture = SubResource("AtlasTexture_84vb7")

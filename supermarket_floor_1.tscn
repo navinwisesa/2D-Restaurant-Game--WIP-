@@ -1,0 +1,191 @@
+[gd_scene load_steps=20 format=3 uid="uid://dbk47miljotmi"]
+
+[ext_resource type="Texture2D" uid="uid://cjm00addwhvab" path="res://Assets/Buildings/Supermarket/supermarketfirstfloor.png" id="1_y5acx"]
+[ext_resource type="Texture2D" uid="uid://bluvw24buh3dd" path="res://Assets/Buildings/Supermarket/guy.png" id="2_xh6ei"]
+[ext_resource type="PackedScene" uid="uid://bmk00x3foc6mh" path="res://player.tscn" id="3_6fjt4"]
+[ext_resource type="Script" uid="uid://s3tjllbj7pnf" path="res://Security.gd" id="3_cj5t0"]
+[ext_resource type="PackedScene" uid="uid://cxubuyter2jwg" path="res://invisdoor.tscn" id="3_n4mfj"]
+[ext_resource type="FontFile" uid="uid://cftei7vqpw6hk" path="res://Assets/UI/pkmnfl.ttf" id="4_mx3iy"]
+[ext_resource type="Script" uid="uid://flg46d3bnqgl" path="res://invisdoor2.gd" id="5_o8epo"]
+[ext_resource type="Script" uid="uid://bad4bx2bjs1e5" path="res://invisdoor3.gd" id="6_jkafx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3h8c"]
+size = Vector2(18, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3l78w"]
+size = Vector2(20, 188)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_40ndi"]
+size = Vector2(82, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cb50j"]
+size = Vector2(14, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0pal"]
+size = Vector2(110, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kpw8l"]
+size = Vector2(15, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2v0tt"]
+size = Vector2(272, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w1ikm"]
+size = Vector2(30, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uatpm"]
+size = Vector2(32, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2eyd"]
+size = Vector2(112, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e36ol"]
+size = Vector2(112, 20)
+
+[node name="SupermarketFloor1" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -296.0
+offset_top = -96.0
+offset_right = 528.0
+offset_bottom = 352.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_y5acx")
+
+[node name="Guy" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(104, 160)
+texture = ExtResource("2_xh6ei")
+
+[node name="Security" type="Area2D" parent="Guy"]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("3_cj5t0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guy/Security"]
+position = Vector2(-1, 20)
+shape = SubResource("RectangleShape2D_y3h8c")
+
+[node name="Label" type="Label" parent="Guy"]
+visible = false
+texture_filter = 1
+offset_left = -48.0
+offset_top = -40.0
+offset_right = 57.0
+offset_bottom = -17.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_mx3iy")
+theme_override_font_sizes/font_size = 15
+text = "[E] to interact"
+
+[node name="Player" parent="." instance=ExtResource("3_6fjt4")]
+position = Vector2(32, 222)
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-10, 148)
+shape = SubResource("RectangleShape2D_3l78w")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(216, 148)
+shape = SubResource("RectangleShape2D_3l78w")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(21, 41)
+shape = SubResource("RectangleShape2D_40ndi")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(200, 42)
+shape = SubResource("RectangleShape2D_40ndi")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(7, 116)
+shape = SubResource("RectangleShape2D_cb50j")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(6, 212)
+shape = SubResource("RectangleShape2D_cb50j")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(200, 212)
+shape = SubResource("RectangleShape2D_cb50j")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(103, 134)
+shape = SubResource("RectangleShape2D_r0pal")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(102, 182)
+shape = SubResource("RectangleShape2D_r0pal")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(55, 158)
+shape = SubResource("RectangleShape2D_kpw8l")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(8, 166)
+shape = SubResource("RectangleShape2D_kpw8l")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(198, 166)
+shape = SubResource("RectangleShape2D_kpw8l")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(150.5, 158)
+shape = SubResource("RectangleShape2D_kpw8l")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(116, 0)
+shape = SubResource("RectangleShape2D_2v0tt")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(191, 91)
+shape = SubResource("RectangleShape2D_w1ikm")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(16, 252)
+shape = SubResource("RectangleShape2D_uatpm")
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(104, 252)
+shape = SubResource("RectangleShape2D_b2eyd")
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(232, 252)
+shape = SubResource("RectangleShape2D_e36ol")
+
+[node name="InvisDoor" parent="." instance=ExtResource("3_n4mfj")]
+position = Vector2(32, 240)
+collision_layer = 32
+collision_mask = 0
+next_scene_path = "res://town.tscn"
+spawn_location = Vector2(528, 256)
+
+[node name="InvisDoor2" parent="." instance=ExtResource("3_n4mfj")]
+position = Vector2(160, 240)
+collision_layer = 64
+collision_mask = 0
+script = ExtResource("5_o8epo")
+next_scene_path = "res://town.tscn"
+spawn_location = Vector2(592, 256)
+
+[node name="InvisDoor3" parent="." instance=ExtResource("3_n4mfj")]
+position = Vector2(56, 34)
+collision_layer = 128
+collision_mask = 0
+script = ExtResource("6_jkafx")
+next_scene_path = "res://supermarket_floor_2.tscn"
+spawn_location = Vector2(64, 40)
+
+[connection signal="body_entered" from="Guy/Security" to="Guy/Security" method="_on_body_entered"]
+[connection signal="body_exited" from="Guy/Security" to="Guy/Security" method="_on_body_exited"]
+[connection signal="security_exited" from="Guy/Security" to="Player" method="_on_security_security_exited"]
+[connection signal="security_interacted" from="Guy/Security" to="Player" method="_on_security_security_interacted"]

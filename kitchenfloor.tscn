@@ -1,0 +1,506 @@
+[gd_scene load_steps=24 format=3 uid="uid://62s58s3fnojb"]
+
+[ext_resource type="Texture2D" uid="uid://b61h0c7jrg2qs" path="res://restaureal.png" id="1_qaun8"]
+[ext_resource type="Texture2D" uid="uid://cclnyvc0mev4l" path="res://kitchensink.png" id="2_xa2pq"]
+[ext_resource type="Texture2D" uid="uid://bbwfrxyxx4ssw" path="res://burner.png" id="3_4qt04"]
+[ext_resource type="Script" uid="uid://dip2voxqbl77b" path="res://Cookinham.gd" id="4_1f4xg"]
+[ext_resource type="Texture2D" uid="uid://g20vimjqxspk" path="res://fridge.png" id="4_d2yuw"]
+[ext_resource type="Texture2D" uid="uid://b6bsmmcrysvwj" path="res://Assets/Buildings/pallet town/plant.png" id="5_gfajf"]
+[ext_resource type="Texture2D" uid="uid://b8w7kygioxpm1" path="res://counter.png" id="5_ic7bm"]
+[ext_resource type="Script" uid="uid://bnspkadnrxlkt" path="res://FridgeStorage.gd" id="6_fad7b"]
+[ext_resource type="FontFile" uid="uid://cftei7vqpw6hk" path="res://Assets/UI/pkmnfl.ttf" id="6_ocnbp"]
+[ext_resource type="PackedScene" uid="uid://bmk00x3foc6mh" path="res://player.tscn" id="6_vmn88"]
+[ext_resource type="PackedScene" uid="uid://dri50hqdulgei" path="res://kitchen_door.tscn" id="7_uy5bh"]
+[ext_resource type="Texture2D" uid="uid://dq641kspbqvng" path="res://Assets/UI/logbox.png" id="8_cerwr"]
+[ext_resource type="Texture2D" uid="uid://cl2fxipt5fhn3" path="res://Assets/UI/menu_box_1.png" id="10_w6gi1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jwefg"]
+size = Vector2(30, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_05nh2"]
+size = Vector2(36, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxl1s"]
+size = Vector2(32, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lmvxo"]
+size = Vector2(50, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_egpwi"]
+size = Vector2(20, 226)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wwm7n"]
+size = Vector2(14, 90)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwi72"]
+size = Vector2(18, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eut1l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tuf88"]
+size = Vector2(16, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50pye"]
+size = Vector2(81.5, 20)
+
+[node name="kitchenfloor" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -382.0
+offset_top = -102.0
+offset_right = 622.0
+offset_bottom = 418.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_qaun8")
+
+[node name="Sink" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(42, 40)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_xa2pq")
+
+[node name="Wishywashy" type="Area2D" parent="Sink"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sink/Wishywashy"]
+position = Vector2(13, 27)
+shape = SubResource("RectangleShape2D_jwefg")
+
+[node name="Stove" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(18, 40)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_4qt04")
+
+[node name="Masak boskyuuu" type="Area2D" parent="Stove"]
+script = ExtResource("4_1f4xg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stove/Masak boskyuuu"]
+position = Vector2(2, 28)
+shape = SubResource("RectangleShape2D_05nh2")
+
+[node name="CookHamInteract" type="Label" parent="Stove"]
+visible = false
+texture_filter = 1
+offset_left = -56.0
+offset_top = -84.0
+offset_right = 64.0
+offset_bottom = -61.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_ocnbp")
+text = "[	E] to cook ham"
+
+[node name="Counter" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(168, 40)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_ic7bm")
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 102.0
+offset_top = 18.0
+offset_right = 122.0
+offset_bottom = 50.0
+texture = ExtResource("5_gfajf")
+
+[node name="TextureRect7" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 134.0
+offset_top = 18.0
+offset_right = 154.0
+offset_bottom = 50.0
+texture = ExtResource("5_gfajf")
+
+[node name="TextureRect4" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(80, 34)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_d2yuw")
+
+[node name="FridgeStorage" type="Area2D" parent="TextureRect4"]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("6_fad7b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TextureRect4/FridgeStorage"]
+position = Vector2(0, 45)
+shape = SubResource("RectangleShape2D_xxl1s")
+
+[node name="Interact space" type="Label" parent="TextureRect4"]
+visible = false
+texture_filter = 1
+offset_left = -96.0
+offset_top = -72.0
+offset_right = 110.0
+offset_bottom = -49.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_ocnbp")
+text = "[E] to access fridge storage"
+
+[node name="FridgeContents" type="TextureRect" parent="TextureRect4"]
+visible = false
+texture_filter = 1
+offset_left = -340.0
+offset_top = 44.0
+offset_right = -80.0
+offset_bottom = 210.0
+texture = ExtResource("8_cerwr")
+
+[node name="Label" type="Label" parent="TextureRect4/FridgeContents"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 4.0
+offset_top = 8.0
+offset_right = 136.0
+offset_bottom = 32.0
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_ocnbp")
+text = "Fridge contents:"
+
+[node name="BunFridge" type="Label" parent="TextureRect4/FridgeContents"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 8.0
+offset_top = 36.0
+offset_right = 36.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_ocnbp")
+
+[node name="BunFridgeText" type="Label" parent="TextureRect4/FridgeContents"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 32.0
+offset_top = 36.0
+offset_right = 119.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_ocnbp")
+text = "bun(s)"
+
+[node name="HamFridge" type="Label" parent="TextureRect4/FridgeContents"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 8.0
+offset_top = 56.0
+offset_right = 36.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_ocnbp")
+
+[node name="HamFridgeText" type="Label" parent="TextureRect4/FridgeContents"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 32.0
+offset_top = 56.0
+offset_right = 119.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_ocnbp")
+text = "frozen ham(s)"
+
+[node name="CheeseFridge" type="Label" parent="TextureRect4/FridgeContents"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 8.0
+offset_top = 76.0
+offset_right = 36.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_ocnbp")
+
+[node name="CheeseFridgeText" type="Label" parent="TextureRect4/FridgeContents"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 32.0
+offset_top = 76.0
+offset_right = 128.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_ocnbp")
+text = "cheese slice(s)"
+
+[node name="TomatoFridge" type="Label" parent="TextureRect4/FridgeContents"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 8.0
+offset_top = 96.0
+offset_right = 36.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_ocnbp")
+
+[node name="TomatoFridgeText" type="Label" parent="TextureRect4/FridgeContents"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 32.0
+offset_top = 96.0
+offset_right = 128.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_ocnbp")
+text = "tomato(es)"
+
+[node name="LettuceFridge" type="Label" parent="TextureRect4/FridgeContents"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 8.0
+offset_top = 116.0
+offset_right = 36.0
+offset_bottom = 140.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_ocnbp")
+
+[node name="LettuceFridgeText" type="Label" parent="TextureRect4/FridgeContents"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 32.0
+offset_top = 116.0
+offset_right = 131.0
+offset_bottom = 140.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_ocnbp")
+text = "lettuce slice(s)"
+
+[node name="FBunPointer" type="Label" parent="TextureRect4/FridgeContents"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 72.0
+offset_top = 36.0
+offset_right = 171.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_ocnbp")
+text = "<"
+
+[node name="FHamPointer" type="Label" parent="TextureRect4/FridgeContents"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 120.0
+offset_top = 56.0
+offset_right = 219.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_ocnbp")
+text = "<"
+
+[node name="FCheesePointer" type="Label" parent="TextureRect4/FridgeContents"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 132.0
+offset_top = 76.0
+offset_right = 231.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_ocnbp")
+text = "<"
+
+[node name="FTomatoPointer" type="Label" parent="TextureRect4/FridgeContents"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 104.0
+offset_top = 96.0
+offset_right = 203.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_ocnbp")
+text = "<"
+
+[node name="FLettucePointer" type="Label" parent="TextureRect4/FridgeContents"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 132.0
+offset_top = 116.0
+offset_right = 231.0
+offset_bottom = 140.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_ocnbp")
+text = "<"
+
+[node name="LettuceFridgeText2" type="Label" parent="TextureRect4/FridgeContents"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 172.0
+offset_top = 36.0
+offset_right = 271.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_ocnbp")
+text = "Amount:"
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect4/FridgeContents"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 176.0
+offset_top = 56.0
+offset_right = 220.0
+offset_bottom = 80.0
+texture = ExtResource("10_w6gi1")
+
+[node name="LettuceFridgeText3" type="Label" parent="TextureRect4/FridgeContents"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 172.0
+offset_top = 100.0
+offset_right = 223.0
+offset_bottom = 124.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_ocnbp")
+text = "Collect! (Y)"
+
+[node name="LettuceFridgeText4" type="Label" parent="TextureRect4/FridgeContents"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 172.0
+offset_top = 84.0
+offset_right = 223.0
+offset_bottom = 108.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_ocnbp")
+text = "-"
+
+[node name="LettuceFridgeText5" type="Label" parent="TextureRect4/FridgeContents"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 216.0
+offset_top = 84.0
+offset_right = 267.0
+offset_bottom = 108.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_ocnbp")
+text = "+"
+
+[node name="AmountToCollect" type="Label" parent="TextureRect4/FridgeContents"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 188.0
+offset_top = 64.0
+offset_right = 239.0
+offset_bottom = 88.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_ocnbp")
+
+[node name="LettuceFridgeText6" type="Label" parent="TextureRect4/FridgeContents"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 12.0
+offset_top = 136.0
+offset_right = 260.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0.870588, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_ocnbp")
+text = "Not enough items to collect!"
+
+[node name="Player" parent="." instance=ExtResource("6_vmn88")]
+position = Vector2(160, 44)
+
+[node name="CollisionSpaces" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionSpaces"]
+position = Vector2(74, -4)
+shape = SubResource("RectangleShape2D_lmvxo")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CollisionSpaces"]
+position = Vector2(178, 38)
+shape = SubResource("RectangleShape2D_lmvxo")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="CollisionSpaces"]
+position = Vector2(34, 38)
+shape = SubResource("RectangleShape2D_lmvxo")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="CollisionSpaces"]
+position = Vector2(0, 119)
+shape = SubResource("RectangleShape2D_egpwi")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="CollisionSpaces"]
+position = Vector2(192, 120)
+shape = SubResource("RectangleShape2D_egpwi")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="CollisionSpaces"]
+position = Vector2(64, 56)
+shape = SubResource("RectangleShape2D_wwm7n")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="CollisionSpaces"]
+position = Vector2(128, 56)
+shape = SubResource("RectangleShape2D_wwm7n")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="CollisionSpaces"]
+position = Vector2(79, 31)
+shape = SubResource("RectangleShape2D_dwi72")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="CollisionSpaces"]
+position = Vector2(112, 30)
+shape = SubResource("RectangleShape2D_dwi72")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="CollisionSpaces"]
+position = Vector2(144, 30)
+shape = SubResource("RectangleShape2D_dwi72")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="CollisionSpaces"]
+position = Vector2(96, 38)
+shape = SubResource("RectangleShape2D_eut1l")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="CollisionSpaces"]
+position = Vector2(48, 202)
+shape = SubResource("RectangleShape2D_tuf88")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="CollisionSpaces"]
+position = Vector2(144, 202)
+shape = SubResource("RectangleShape2D_tuf88")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="CollisionSpaces"]
+position = Vector2(47.25, 240)
+shape = SubResource("RectangleShape2D_50pye")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="CollisionSpaces"]
+position = Vector2(144, 240)
+shape = SubResource("RectangleShape2D_50pye")
+
+[node name="KitchenDoor" parent="." instance=ExtResource("7_uy5bh")]
+position = Vector2(88, 234)
+next_scene_path = "res://restofloor.tscn"
+spawn_location = Vector2(192, 96)
+
+[connection signal="body_entered" from="TextureRect4/FridgeStorage" to="TextureRect4/FridgeStorage" method="_on_body_entered"]
+[connection signal="body_exited" from="TextureRect4/FridgeStorage" to="TextureRect4/FridgeStorage" method="_on_body_exited"]
+[connection signal="collect_bun" from="TextureRect4/FridgeStorage" to="Player" method="_on_fridge_storage_collect_bun"]
+[connection signal="collect_cheese" from="TextureRect4/FridgeStorage" to="Player" method="_on_fridge_storage_collect_cheese"]
+[connection signal="collect_ham" from="TextureRect4/FridgeStorage" to="Player" method="_on_fridge_storage_collect_ham"]
+[connection signal="collect_lettuce" from="TextureRect4/FridgeStorage" to="Player" method="_on_fridge_storage_collect_lettuce"]
+[connection signal="collect_tomato" from="TextureRect4/FridgeStorage" to="Player" method="_on_fridge_storage_collect_tomato"]
+[connection signal="fridge_contents_enter" from="TextureRect4/FridgeStorage" to="Player" method="_on_fridge_storage_fridge_contents_enter"]
+[connection signal="fridge_contents_exit" from="TextureRect4/FridgeStorage" to="Player" method="_on_fridge_storage_fridge_contents_exit"]

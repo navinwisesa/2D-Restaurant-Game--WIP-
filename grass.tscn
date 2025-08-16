@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://cloao2ka70new"]
+
+[ext_resource type="Script" path="res://grass.gd" id="1_3jiyn"]
+[ext_resource type="Texture2D" uid="uid://tkhcjmmh2dbm" path="res://Assets/Grass/tall_grass.png" id="1_qafqs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmeql"]
+size = Vector2(14, 14)
+
+[sub_resource type="Animation" id="Animation_k1lnx"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ve3um"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_1dqqv"]
+resource_name = "Stepped"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ilpom"]
+_data = {
+"Idle": SubResource("Animation_k1lnx"),
+"RESET": SubResource("Animation_ve3um"),
+"Stepped": SubResource("Animation_1dqqv")
+}
+
+[node name="Grass" type="Node2D"]
+script = ExtResource("1_3jiyn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_qafqs")
+centered = false
+hframes = 2
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_tmeql")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ilpom")
+}
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

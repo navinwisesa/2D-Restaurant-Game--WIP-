@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8n00r4kq1m3m"]
+
+[ext_resource type="Texture2D" uid="uid://dmeabvfcbgmta" path="res://Assets/Buildings/pallet town/signpost.png" id="1_05fn1"]
+[ext_resource type="Script" path="res://resto_signpost.gd" id="1_s7pko"]
+[ext_resource type="PackedScene" uid="uid://dd0frv1x07vi0" path="res://Interactions/InteractionArea.tscn" id="3_2fbx5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_51lpp"]
+size = Vector2(32, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_skknb"]
+size = Vector2(32, 84)
+
+[node name="RestoSignpost" type="StaticBody2D"]
+collision_layer = 0
+script = ExtResource("1_s7pko")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_05fn1")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, 22)
+shape = SubResource("RectangleShape2D_51lpp")
+
+[node name="InteractionArea2" parent="." instance=ExtResource("3_2fbx5")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea2"]
+position = Vector2(16, 46)
+shape = SubResource("RectangleShape2D_skknb")

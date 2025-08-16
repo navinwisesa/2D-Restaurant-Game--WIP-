@@ -1,0 +1,104 @@
+[gd_scene load_steps=9 format=3 uid="uid://c2krwfnjlblcd"]
+
+[ext_resource type="Texture2D" uid="uid://7tn1iw8rt2fx" path="res://Assets/Buildings/Supermarket/supermarketrooftop.png" id="1_sxy2b"]
+[ext_resource type="PackedScene" uid="uid://bmk00x3foc6mh" path="res://player.tscn" id="2_b6lgn"]
+[ext_resource type="PackedScene" uid="uid://cxubuyter2jwg" path="res://invisdoor.tscn" id="3_jxjrm"]
+[ext_resource type="Script" uid="uid://jdrdqetnecxs" path="res://invisstairs.gd" id="4_isj3a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_go0iy"]
+size = Vector2(284, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihpqu"]
+size = Vector2(20, 134)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_51nyu"]
+size = Vector2(30, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n7k0r"]
+size = Vector2(14, 12)
+
+[node name="SupermarketRooftop" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -312.0
+offset_top = -142.0
+offset_right = 572.0
+offset_bottom = 398.0
+color = Color(0.596078, 0.815686, 0.972549, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_sxy2b")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -2.0
+offset_top = -142.0
+offset_right = 346.0
+offset_bottom = 6.0
+color = Color(0.596078, 0.815686, 0.972549, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = -12.0
+offset_top = 226.0
+offset_right = 330.0
+offset_bottom = 374.0
+color = Color(0.596078, 0.815686, 0.972549, 1)
+
+[node name="Player" parent="." instance=ExtResource("2_b6lgn")]
+position = Vector2(216, 96)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(150, 154)
+shape = SubResource("RectangleShape2D_go0iy")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(152, 40)
+shape = SubResource("RectangleShape2D_go0iy")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2, 93)
+shape = SubResource("RectangleShape2D_ihpqu")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(294, 92)
+shape = SubResource("RectangleShape2D_ihpqu")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(79, 97)
+shape = SubResource("RectangleShape2D_51nyu")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(55, 90)
+shape = SubResource("RectangleShape2D_n7k0r")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(54, 106)
+shape = SubResource("RectangleShape2D_n7k0r")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(104, 106)
+shape = SubResource("RectangleShape2D_n7k0r")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(104, 90)
+shape = SubResource("RectangleShape2D_n7k0r")
+
+[node name="InvisDoor" parent="." instance=ExtResource("3_jxjrm")]
+position = Vector2(232, 90)
+collision_layer = 256
+collision_mask = 256
+script = ExtResource("4_isj3a")
+next_scene_path = "res://supermarket_floor_2.tscn"
+spawn_location = Vector2(128, 40)
+
+[node name="InvisDoor2" parent="." instance=ExtResource("3_jxjrm")]
+position = Vector2(232, 106)
+collision_layer = 256
+collision_mask = 256
+script = ExtResource("4_isj3a")
+next_scene_path = "res://supermarket_floor_2.tscn"
+spawn_location = Vector2(128, 40)

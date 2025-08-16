@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://civ3kio376dfd"]
+
+[ext_resource type="Script" path="res://item/item_data.gd" id="1_xs44h"]
+
+[resource]
+script = ExtResource("1_xs44h")
+name = "Buns"
+description = "The staple of all burgers."
+stackable = false

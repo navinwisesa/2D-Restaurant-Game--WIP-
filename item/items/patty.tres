@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://bajq5urww2err"]
+
+[ext_resource type="Script" path="res://item/item_data.gd" id="1_ycnde"]
+
+[resource]
+script = ExtResource("1_ycnde")
+name = "Patty"
+description = "The good stuff of da burg"
+stackable = true

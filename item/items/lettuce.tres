@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://c2jflp02il61b"]
+
+[ext_resource type="Script" path="res://item/item_data.gd" id="1_0u32s"]
+[ext_resource type="Texture2D" uid="uid://dlu5l8gk5ndir" path="res://Assets/UI/Food/just_a_lettuce____by_gooberplease_dab5q2a-fullview.png" id="2_ry3ej"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k51fx"]
+atlas = ExtResource("2_ry3ej")
+region = Rect2(0, 0, 724, 646)
+
+[resource]
+script = ExtResource("1_0u32s")
+name = "Lettuce"
+description = "eat ya veggies"
+stackable = true
+texture = SubResource("AtlasTexture_k51fx")

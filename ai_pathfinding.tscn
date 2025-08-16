@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bbj1m5b4f0y44"]
+
+[node name="AIPathfinding" type="Node2D"]
